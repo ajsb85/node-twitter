@@ -2,14 +2,14 @@
 
 var assert = require('assert');
 var nock = require('nock');
-var Twitter = require('../lib/twitter');
+var Magento = require('../lib/magento');
 var VERSION = require('../package.json').version;
 
-describe('Twitter', function() {
+describe('Magento', function() {
 
   describe('Constructor', function() {
 
-    describe('new Twitter();', function() {
+    describe('new Magento();', function() {
 
       var defaults = {};
 
@@ -20,28 +20,28 @@ describe('Twitter', function() {
           access_token_key: null,
           access_token_secret: null,
           bearer_token: null,
-          rest_base: 'https://api.twitter.com/1.1',
-          stream_base: 'https://stream.twitter.com/1.1',
-          user_stream_base: 'https://userstream.twitter.com/1.1',
-          site_stream_base: 'https://sitestream.twitter.com/1.1',
-          media_base: 'https://upload.twitter.com/1.1',
+          rest_base: 'https://api.magento.com/1.1',
+          stream_base: 'https://stream.magento.com/1.1',
+          user_stream_base: 'https://userstream.magento.com/1.1',
+          site_stream_base: 'https://sitestream.magento.com/1.1',
+          media_base: 'https://upload.magento.com/1.1',
           request_options: {
             headers: {
               'Accept': '*/*',
               'Connection': 'close',
-              'User-Agent': 'node-twitter/' + VERSION
+              'User-Agent': 'node-magento/' + VERSION
             }
           }
         };
       });
 
       it('create new instance', function(){
-        var client = new Twitter();
-        assert(client instanceof Twitter);
+        var client = new Magento();
+        assert(client instanceof Magento);
       });
 
       it('has default options', function(){
-        var client = new Twitter();
+        var client = new Magento();
         assert.equal(
           Object.keys(defaults).length,
           Object.keys(client.options).length
@@ -63,7 +63,7 @@ describe('Twitter', function() {
           }
         };
 
-        var client = new Twitter(options);
+        var client = new Magento(options);
 
         assert(client.options.hasOwnProperty('power'));
         assert.equal(client.options.power, options.power);
@@ -76,7 +76,7 @@ describe('Twitter', function() {
       });
 
       it('has pre-configured request object', function(next){
-        var client = new Twitter({
+        var client = new Magento({
           request_options: {
             headers: {
               foo: 'bar'
@@ -86,15 +86,15 @@ describe('Twitter', function() {
 
         assert(client.hasOwnProperty('request'));
 
-        nock('http://node.twitter').get('/').reply(200);
-        client.request.get('http://node.twitter/', function(error, response){
+        nock('http://node.magento').get('/').reply(200);
+        client.request.get('http://node.magento/', function(error, response){
 
           var headers = response.request.headers;
 
           assert(headers.hasOwnProperty('foo'));
           assert(headers.foo, 'bar');
 
-          assert.equal(headers['User-Agent'], 'node-twitter/' + VERSION);
+          assert.equal(headers['User-Agent'], 'node-magento/' + VERSION);
           assert(headers.hasOwnProperty('Authorization'));
           assert(headers.Authorization.match(/^OAuth/));
 
@@ -111,7 +111,7 @@ describe('Twitter', function() {
       var client;
 
       before(function(){
-        client = new Twitter({});
+        client = new Magento({});
       });
 
       it('method exists', function(){
@@ -120,7 +120,7 @@ describe('Twitter', function() {
 
       it('build url', function(){
         var path = 'statuses';
-        var endpoint = 'https://stream.twitter.com/1.1/statuses';
+        var endpoint = 'https://stream.magento.com/1.1/statuses';
 
         assert.throws(
           client.__buildEndpoint,

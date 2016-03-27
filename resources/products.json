@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "sku": "appandroid",
+      "name": "App Android",
+      "attribute_set_id": 4,
+      "price": 100,
+      "status": 1,
+      "visibility": 4,
+      "type_id": "simple",
+      "created_at": "2016-03-09 13:22:53",
+      "updated_at": "2016-03-09 13:22:53",
+      "product_links": [
+
+      ],
+      "options": [
+
+      ],
+      "tier_prices": [
+
+      ],
+      "custom_attributes": [
+        {
+          "attribute_code": "description",
+          "value": "<p>Very good app<\/p>"
+        },
+        {
+          "attribute_code": "meta_title",
+          "value": "App Android"
+        },
+        {
+          "attribute_code": "meta_keyword",
+          "value": "App Android"
+        },
+        {
+          "attribute_code": "meta_description",
+          "value": "App Android <p>Very good app<\/p>"
+        },
+        {
+          "attribute_code": "image",
+          "value": "\/d\/e\/demo_make_android_apps.png"
+        },
+        {
+          "attribute_code": "small_image",
+          "value": "\/d\/e\/demo_make_android_apps.png"
+        },
+        {
+          "attribute_code": "thumbnail",
+          "value": "\/d\/e\/demo_make_android_apps.png"
+        },
+        {
+          "attribute_code": "options_container",
+          "value": "container2"
+        },
+        {
+          "attribute_code": "required_options",
+          "value": "0"
+        },
+        {
+          "attribute_code": "has_options",
+          "value": "0"
+        },
+        {
+          "attribute_code": "url_key",
+          "value": "app-android"
+        },
+        {
+          "attribute_code": "swatch_image",
+          "value": "\/d\/e\/demo_make_android_apps.png"
+        },
+        {
+          "attribute_code": "tax_class_id",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "search_criteria": {
+    "filter_groups": [
+
+    ]
+  },
+  "total_count": 1
+}

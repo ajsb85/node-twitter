@@ -1,17 +1,18 @@
 {
-  "name": "twitter",
-  "version": "v1.2.5",
-  "description": "Twitter API client library for node.js",
+  "name": "magento-rest",
+  "version": "v0.1.0",
+  "description": "Magento REST API client library for node.js",
   "keywords": [
-    "twitter",
-    "streaming",
-    "oauth"
+    "magento",
+    "rest",
+    "oauth",
+    "api"
   ],
-  "homepage": "https://github.com/desmondmorris/node-twitter",
-  "author": "Desmond Morris <hi@desmondmorris.com>",
+  "homepage": "https://github.com/ajsb85/node-magento-rest",
+  "author": "Alexander J. Salas B. <a.salas@ieee.org>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/desmondmorris/node-twitter"
+    "url": "https://github.com/ajsb85/node-magento-rest"
   },
   "scripts": {
     "test": "npm run lint && mocha",
@@ -26,7 +27,7 @@
     "mocha": "^2.1.0",
     "nock": "^0.57.0"
   },
-  "main": "./lib/twitter",
+  "main": "./lib/magento",
   "jshintConfig": {
     "boss": true,
     "node": true,

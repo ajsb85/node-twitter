@@ -1,13 +1,13 @@
-# Twitter for Node.js
+# Magento for Node.js
 
-An asynchronous client library for the Twitter [REST](https://dev.twitter.com/rest/public) and [Streaming](https://dev.twitter.com/streaming/overview) API's.
+An asynchronous client library for the Magento [REST](http://devdocs.magento.com/guides/v2.0/get-started/rest_front.html) API.
 
-[![wercker status](https://app.wercker.com/status/624dbe8ad011852d1e01d7dc03941fc5/s/master "wercker status")](https://app.wercker.com/project/bykey/624dbe8ad011852d1e01d7dc03941fc5) [![NPM](https://nodei.co/npm/twitter.png?mini=true)](https://nodei.co/npm/twitter/)
+[![wercker status](https://app.wercker.com/status/xxx/s/master "wercker status")](https://app.wercker.com/project/bykey/xxx) [![NPM](https://nodei.co/npm/magento-rest.png?mini=true)](https://nodei.co/npm/magento-rest/)
 
 ```javascript
-var Twitter = require('twitter');
+var Magento = require('magento-rest');
 
-var client = new Twitter({
+var client = new Magento({
   consumer_key: '',
   consumer_secret: '',
   access_token_key: '',
@@ -15,29 +15,29 @@ var client = new Twitter({
 });
 
 var params = {screen_name: 'nodejs'};
-client.get('statuses/user_timeline', params, function(error, tweets, response){
+client.get('statuses/user_timeline', params, function(error, products, response){
   if (!error) {
-    console.log(tweets);
+    console.log(products);
   }
 });
 ```
 
 ## Installation
 
-`npm install twitter`
+`npm install Magento`
 
 ## Quick Start
 
-You will need valid Twitter developer credentials in the form of a set of consumer and access tokens/keys.  You can get these [here](https://apps.twitter.com/).  Do not forgot to adjust your permissions - most POST request require write permissions.
+You will need valid Magento developer credentials in the form of a set of consumer and access tokens/keys.  You can get these [here](https://apps.magento.com/).  Do not forgot to adjust your permissions - most POST request require write permissions.
 
 ```javascript
-var Twitter = require('twitter');
+var Magento = require('magento-rest');
 ```
 
 ## For User based authetication:
 
 ```javascript
-var client = new Twitter({
+var client = new Magento({
   consumer_key: '',
   consumer_secret: '',
   access_token_key: '',
@@ -48,19 +48,19 @@ var client = new Twitter({
 Add your credentials accordingly.  I would use environment variables to keep your private info safe.  So something like:
 
 ```javascript
-var client = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+var client = new Magento({
+  consumer_key: process.env.MAGENTO_CONSUMER_KEY,
+  consumer_secret: process.env.MAGENTO_CONSUMER_SECRET,
+  access_token_key: process.env.MAGENTO_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.MAGENTO_ACCESS_TOKEN_SECRET,
 });
 ```
 ## For Application Only based authetication:
 
-You will need to fetch a bearer token from Twitter as documented [Here](https://dev.twitter.com/oauth/application-only), once you have it you can use it as follows.
+You will need to fetch a bearer token from Magento as documented [Here](https://dev.magento.com/oauth/application-only), once you have it you can use it as follows.
 
 ```javascript
-var client = new Twitter({
+var client = new Magento({
   consumer_key: '',
   consumer_secret: '',
   bearer_token: ''
@@ -70,10 +70,10 @@ var client = new Twitter({
 Add your credentials accordingly.  I would use environment variables to keep your private info safe.  So something like:
 
 ```javascript
-var client = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  bearer_token: process.env.TWITTER_BEARER_TOKEN,
+var client = new Magento({
+  consumer_key: process.env.MAGENTO_CONSUMER_KEY,
+  consumer_secret: process.env.MAGENTO_CONSUMER_SECRET,
+  bearer_token: process.env.MAGENTO_BEARER_TOKEN,
 });
 ```
 
@@ -91,22 +91,22 @@ client.stream(path, params, callback);
 
 ## REST API
 
-You simply need to pass the endpoint and parameters to one of convenience methods.  Take a look at the [documentation site](https://dev.twitter.com/rest/public) to reference available endpoints.
+You simply need to pass the endpoint and parameters to one of convenience methods.  Take a look at the [documentation site](https://dev.magento.com/rest/public) to reference available endpoints.
 
-Example, lets get a [list of favorites](https://dev.twitter.com/rest/reference/get/favorites/list):
+Example, lets get a [list of favorites](https://dev.magento.com/rest/reference/get/favorites/list):
 
 ```javascript
-client.get('favorites/list', function(error, tweets, response){
+client.get('favorites/list', function(error, products, response){
   if(error) throw error;
-  console.log(tweets);  // The favorites.
+  console.log(products);  // The favorites.
   console.log(response);  // Raw response object.
 });
 ```
 
-How about an example that passes parameters?  Let's  [tweet something](https://dev.twitter.com/rest/reference/post/statuses/update):
+How about an example that passes parameters?  Let's  [tweet something](https://dev.magento.com/rest/reference/post/statuses/update):
 
 ```javascript
-client.post('statuses/update', {status: 'I Love Twitter'},  function(error, tweet, response){
+client.post('statuses/update', {status: 'I Love Magento'},  function(error, tweet, response){
   if(error) throw error;
   console.log(tweet);  // Tweet body.
   console.log(response);  // Raw response object.
@@ -131,25 +131,27 @@ client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
 
 ## Examples
 
-* [Tweet](https://github.com/desmondmorris/node-twitter/tree/master/examples#tweet)
-* [Search](https://github.com/desmondmorris/node-twitter/tree/master/examples#search)
-* [Streams](https://github.com/desmondmorris/node-twitter/tree/master/examples#streams)
-* [Proxy](https://github.com/desmondmorris/node-twitter/tree/master/examples#proxy)
-* [Media](https://github.com/desmondmorris/node-twitter/tree/master/examples#media)
+* [Tweet](https://github.com/ajsb85/node-magento-rest/tree/master/examples#tweet)
+* [Search](https://github.com/ajsb85/node-magento-rest/tree/master/examples#search)
+* [Streams](https://github.com/ajsb85/node-magento-rest/tree/master/examples#streams)
+* [Proxy](https://github.com/ajsb85/node-magento-rest/tree/master/examples#proxy)
+* [Media](https://github.com/ajsb85/node-magento-rest/tree/master/examples#media)
 
 ## Contributors
 
-Originally authored by  [@technoweenie](http://github.com/technoweenie)
+Maintained by  [@ajsb85](http://github.com/ajsb85)
+
+Based on Twitter, authored by  [@technoweenie](http://github.com/technoweenie)
  and maintained by [@jdub](http://github.com/jdub)
 
-Currently maintained by [@desmondmorris](http://github.com/desmondmorris)
+Twitter is currently maintained by [@desmondmorris](http://github.com/desmondmorris)
 
-[And we cannot forget the community](https://github.com/desmondmorris/node-twitter/graphs/contributors)
+[And we cannot forget the community](https://github.com/ajsb85/node-magento-rest/graphs/contributors)
 
 
 ## LICENSE
 
-node-twitter: Copyright (c) 2014 Desmond Morris
+magento-rest: Copyright (c) 2016 Alexander J. Salas B.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
