@@ -19,7 +19,7 @@
     "lint": "jshint test/*.js lib/*.js && echo Lint passed."
   },
   "dependencies": {
-    "deep-extend": "^0.3.2",
+    "deep-extend": "^0.6.0",
     "request": "^2.51.0"
   },
   "devDependencies": {
